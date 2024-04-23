@@ -90,13 +90,19 @@ layout = html.Div([
     ], className='row', style={'backgroundColor':'#7092F4','padding':'10px'}),
     html.Div([ # Contain row with graphs
         html.Div(# Create first graph
-            dcc.Graph(
-                id = 'Graph1a'
-            ), className = 'six columns'),
-        html.Div(# Create second graph
-            dcc.Graph(
-                id = 'Graph1b'
-            ), className = 'six columns')
+            dcc.Loading(id='loader1', children = [
+                dcc.Graph(
+                    id = 'Graph1a'
+                )
+            ])
+        , className = 'six columns'),
+        html.Div(# Create first graph
+            dcc.Loading(id='loader2', children = [
+                dcc.Graph(
+                    id = 'Graph1b'
+                )
+            ])
+        , className = 'six columns')
     ], className='row', style={'backgroundColor':'#D3D3D3'})
 ])
 
